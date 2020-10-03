@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+// Burada Logo Giriş ve Kayıt ol butonları olacak
 class WelcomeScreen extends StatefulWidget {
   static const String id='welcome_screen';
   @override
