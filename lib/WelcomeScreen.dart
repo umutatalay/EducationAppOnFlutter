@@ -37,71 +37,92 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
-      body: Padding(
-        padding:EdgeInsets.symmetric(horizontal: 40.0),
-        child:Column(
-          children: <Widget>[
-            SizedBox(
-              height: 30.0,
-            ),
-            Row(
 
-              children: <Widget>[
-                TypewriterAnimatedTextKit(
-                  text: ['coding ...','coding;','<coding>'],
-                  textStyle: TextStyle(
-                    color: Colors.black,
-                    fontSize:22.0,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Codelike',
+      backgroundColor: Colors.redAccent,
+      body:
+           Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 70.0),
+                    child: Row(
+                      children: <Widget>[
+                        TypewriterAnimatedTextKit(
+                          text: ['coding ...','coding;','<coding>'],
+                          textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize:26.0,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Codelike',
+                          ),
+
+                        ),
+
+
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 260.0,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 90.0),
+                    child: Row(
+                      children: <Widget>[
+                        ButtonTheme(
+                          minWidth: 225.0,
+                          height: 43.0,
+                          child: RaisedButton(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                                side: BorderSide(color: Colors.white)),
+                            onPressed: () {},
+                            color: Colors.redAccent,
+                            textColor: Colors.white,
+                            child: Text("GİRİŞ YAP",
+                                style: TextStyle(fontSize: 20,fontWeight: FontWeight.w800),
+
+
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 0.0,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 90.0),
+                    child: Row(
+                      children: <Widget>[
+                        ButtonTheme(
+                          minWidth: 225.0,
+                          height: 43.0,
+                          child: RaisedButton(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                                side: BorderSide(color: Colors.white)),
+                            onPressed: () {},
+                            color: Colors.white,
+                            textColor: Colors.red,
+                            child: Text(" Kayıt Ol ".toUpperCase(),
+                                style: TextStyle(fontSize: 20,color: Colors.red)),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
 
-                ),
+
+                ],
+              ),
 
 
-              ],
-            ),
-            SizedBox(
-              height: 60.0,
-            ),
-            Row(
-              children: <Widget>[
-                RaisedButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                      side: BorderSide(color: Colors.black)),
-                  onPressed: () {},
-                  color: Colors.lightBlueAccent,
-                  textColor: Colors.white,
-                  child: Text("Giriş Yap".toUpperCase(),
-                      style: TextStyle(fontSize: 22,fontWeight: FontWeight.w800),
 
 
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                RaisedButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                      side: BorderSide(color: Colors.black)),
-                  onPressed: () {},
-                  color: Colors.lightBlueAccent,
-                  textColor: Colors.white,
-                  child: Text("Kayıt Ol".toUpperCase(),
-                      style: TextStyle(fontSize: 22)),
-                ),
-              ],
-            ),
 
-
-          ],
-        )
-
-      )
     );
 
   }
