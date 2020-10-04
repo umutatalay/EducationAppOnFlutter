@@ -21,6 +21,8 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Padding(
         padding: const EdgeInsets.all(70.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             SizedBox(
               height: 30.0,
@@ -50,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
               obscureText: true,
               textAlign: TextAlign.center,
               decoration:
-                  kTextFieldDecoration.copyWith(hintText: 'Şifrenizi giriniz'),
+              kTextFieldDecoration.copyWith(hintText: 'Şifrenizi giriniz'),
             ),
             SizedBox(
               height: 24.0,
