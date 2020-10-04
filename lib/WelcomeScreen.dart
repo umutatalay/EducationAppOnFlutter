@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/animation.dart';
-
+import 'package:zenginfalan/LoginScreen.dart';
+import 'package:zenginfalan/Register.dart';
 
 // Burada Logo Giriş ve Kayıt ol butonları olacak
 class WelcomeScreen extends StatefulWidget {
-  static const String id='welcome_screen';
+  static const String id = 'welcome_screen';
+
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProviderStateMixin{
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with SingleTickerProviderStateMixin {
   AnimationController controller;
-
-
 
   @override
   void initState() {
@@ -26,11 +27,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     );
     controller.forward();
     controller.addListener(() {
-      setState(() {
-
-      });
-      print(controller.value);
-
+      setState(() {});
     });
   }
 
@@ -46,7 +43,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
               height: 30.0,
             ),
             Row(
-
               children: <Widget>[
                 TypewriterAnimatedTextKit(
                   text: ['coding ...','coding;','<coding>'],
@@ -56,10 +52,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Codelike',
                   ),
-
                 ),
-
-
               ],
             ),
             SizedBox(
@@ -71,13 +64,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18.0),
                       side: BorderSide(color: Colors.black)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, LoginScreen.id);
+                  },
                   color: Colors.lightBlueAccent,
                   textColor: Colors.white,
                   child: Text("Giriş Yap".toUpperCase(),
-                      style: TextStyle(fontSize: 22,fontWeight: FontWeight.w800),
-
-
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800),
                   ),
                 ),
               ],
@@ -88,7 +81,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18.0),
                       side: BorderSide(color: Colors.black)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, RegisterScreen.id);
+                  },
                   color: Colors.lightBlueAccent,
                   textColor: Colors.white,
                   child: Text("Kayıt Ol".toUpperCase(),
