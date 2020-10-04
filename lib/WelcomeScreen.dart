@@ -7,20 +7,14 @@ import 'package:zenginfalan/Register.dart';
 // Burada Logo Giriş ve Kayıt ol butonları olacak
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
-
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
-
 class _WelcomeScreenState extends State<WelcomeScreen>
     with SingleTickerProviderStateMixin {
   AnimationController controller;
-
-
-
   @override
   void initState() {
-
     // TODO: implement initState
     super.initState();
     controller= AnimationController(
@@ -34,7 +28,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
       });
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +40,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               height: 30.0,
             ),
             Row(
-
               children: <Widget>[
                 TypewriterAnimatedTextKit(
                   text: ['coding ...','coding;','<coding>'],
@@ -57,10 +49,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Codelike',
                   ),
-
                 ),
-
-
               ],
             ),
             SizedBox(
@@ -79,8 +68,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   textColor: Colors.white,
                   child: Text("Giriş Yap".toUpperCase(),
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800),
-
-
                   ),
                 ),
               ],
@@ -101,12 +88,9 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 ),
               ],
             ),
-
-
           ],
-        )
-
-      )
+        ),
+      ),
     );
 
   }

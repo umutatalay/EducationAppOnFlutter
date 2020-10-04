@@ -40,10 +40,10 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 200.0,
             ),
             TextField(
-              keyboardType: TextInputType.emailAddress,
               textAlign: TextAlign.center,
               decoration: kTextFieldDecoration.copyWith(
-                  hintText: 'Kullanıcı adınızı giriniz'),
+                hintText: 'Kullanıcı adınızı giriniz',
+              ),
             ),
             SizedBox(
               height: 8.0,
@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 24.0,
             ),
             RoundedButton(
-              title: 'Log In',
+              title: 'Giriş Yap',
               colour: Colors.lightBlueAccent,
               onPressed: () {
                 setState(() {});
