@@ -17,55 +17,64 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.pink,
-      body: Padding(
-        padding: const EdgeInsets.all(70.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            SizedBox(
-              height: 30.0,
-            ),
-            TypewriterAnimatedTextKit(
+      backgroundColor: Colors.grey,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+
+          Flexible(
+            child: TypewriterAnimatedTextKit(
               text: ['coding ...', 'coding;', '<coding>'],
               textStyle: TextStyle(
-                color: Colors.black,
+                color: Colors.white60,
                 fontSize: 22.0,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Codelike',
               ),
             ),
-            SizedBox(
-              height: 200.0,
-            ),
-            TextField(
-              textAlign: TextAlign.center,
-              decoration: kTextFieldDecoration.copyWith(
-                hintText: 'Kullanıcı adınızı giriniz',
+          ),
+          SizedBox(
+            height: 200.0,
+          ),
+          TextField(
+            textAlign: TextAlign.center,
+            decoration: kTextFieldDecoration.copyWith(
+              labelText: 'Kullanıcı Adı',
+              labelStyle: TextStyle(
+                color: Colors.red,
+                fontWeight: FontWeight.bold,
               ),
+
+
+              //hintText: 'Kullanıcı adınızı giriniz',
             ),
-            SizedBox(
-              height: 8.0,
-            ),
-            TextField(
-              obscureText: true,
-              textAlign: TextAlign.center,
-              decoration:
-              kTextFieldDecoration.copyWith(hintText: 'Şifrenizi giriniz'),
-            ),
-            SizedBox(
-              height: 24.0,
-            ),
-            RoundedButton(
-              title: 'Giriş Yap',
-              colour: Colors.lightBlueAccent,
-              onPressed: () {
-                setState(() {});
-              },
-            ),
-          ],
-        ),
+          ),
+          SizedBox(
+            height: 8.0,
+          ),
+          TextField(
+            obscureText: true,
+            textAlign: TextAlign.center,
+            decoration:
+            kTextFieldDecoration.copyWith(
+                labelText: 'Parola',
+                labelStyle: TextStyle(
+                  color: Colors.red,
+                  fontWeight: FontWeight.bold,
+                )),
+          ),
+          SizedBox(
+            height: 24.0,
+          ),
+          RoundedButton(
+            title: 'Giriş Yap',
+            colour: Colors.lightBlueAccent,
+            onPressed: () {
+              setState(() {});
+            },
+          ),
+        ],
       ),
     );
   }
