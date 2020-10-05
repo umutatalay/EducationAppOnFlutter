@@ -17,34 +17,35 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.redAccent,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
 
           Flexible(
             child: TypewriterAnimatedTextKit(
               text: ['coding ...', 'coding;', '<coding>'],
               textStyle: TextStyle(
-                color: Colors.white60,
+                color: Colors.white,
                 fontSize: 22.0,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Codelike',
               ),
             ),
           ),
-          SizedBox(
-            height: 200.0,
+          Flexible(
+            child: SizedBox(
+              height: 200.0,
+            ),
           ),
           TextField(
+            style: TextStyle(
+              color: Colors.white,
+            ),
             textAlign: TextAlign.center,
             decoration: kTextFieldDecoration.copyWith(
               labelText: 'Kullanıcı Adı',
-              labelStyle: TextStyle(
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
-              ),
+                labelStyle: kTextFont,
 
 
               //hintText: 'Kullanıcı adınızı giriniz',
@@ -54,25 +55,40 @@ class _LoginScreenState extends State<LoginScreen> {
             height: 8.0,
           ),
           TextField(
+            style: TextStyle(
+              color: Colors.white,
+            ),
             obscureText: true,
             textAlign: TextAlign.center,
             decoration:
             kTextFieldDecoration.copyWith(
                 labelText: 'Parola',
-                labelStyle: TextStyle(
-                  color: Colors.red,
-                  fontWeight: FontWeight.bold,
-                )),
+              labelStyle: kTextFont,
+
+            ),
           ),
           SizedBox(
             height: 24.0,
           ),
-          RoundedButton(
-            title: 'Giriş Yap',
-            colour: Colors.lightBlueAccent,
-            onPressed: () {
-              setState(() {});
-            },
+          ButtonTheme(
+            minWidth: 375.0,
+            height: 40.0,
+
+            child: FlatButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
+                  side: BorderSide(color: Colors.red)),
+              color: Colors.white,
+              textColor: Colors.red,
+              padding: EdgeInsets.all(8.0),
+              onPressed: () {},
+              child: Text(
+                "GİRİŞ YAP",
+                style: TextStyle(
+                  fontSize: 22.0,
+                ),
+              ),
+            ),
           ),
         ],
       ),

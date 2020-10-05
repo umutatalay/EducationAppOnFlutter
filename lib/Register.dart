@@ -15,61 +15,111 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple,
-      body: Padding(
-        padding: const EdgeInsets.all(70.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            SizedBox(
-              height: 30.0,
-            ),
-            TypewriterAnimatedTextKit(
+      backgroundColor: Colors.redAccent,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+
+          Flexible(
+            child: TypewriterAnimatedTextKit(
               text: ['coding ...', 'coding;', '<coding>'],
               textStyle: TextStyle(
-                color: Colors.black,
+                color: Colors.white,
                 fontSize: 22.0,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Codelike',
               ),
             ),
-            SizedBox(
+          ),
+          Flexible(
+            child: SizedBox(
               height: 200.0,
             ),
-            TextField(
-              keyboardType: TextInputType.emailAddress,
-              textAlign: TextAlign.center,
-              decoration: kTextFieldDecoration.copyWith(
-                  hintText: 'Kullanıcı Adı Giriniz'),
+          ),
+          TextField(
+            style: TextStyle(
+              color: Colors.white,
             ),
-            SizedBox(
-              height: 8.0,
+            textAlign: TextAlign.center,
+            decoration: kTextFieldDecoration.copyWith(
+              labelText: 'E Posta adresi',
+              labelStyle: kTextFont,
+
+
+              //hintText: 'Kullanıcı adınızı giriniz',
             ),
-            TextField(
-              obscureText: true,
-              textAlign: TextAlign.center,
-              decoration:
-                  kTextFieldDecoration.copyWith(hintText: 'Şifrenizi giriniz'),
+          ),
+          SizedBox(
+            height: 8.0,
+          ),
+          TextField(
+            style: TextStyle(
+              color:Colors.white,
             ),
-            SizedBox(
-              height: 8.0,
+            textAlign: TextAlign.center,
+            decoration: kTextFieldDecoration.copyWith(
+              labelText: 'İsim Soyad',
+              labelStyle: kTextFont,
+
+
+              //hintText: 'Kullanıcı adınızı giriniz',
             ),
-            TextField(
-              obscureText: true,
-              textAlign: TextAlign.center,
-              decoration: kTextFieldDecoration.copyWith(
-                  hintText: 'Şifrenizi tekrar giriniz'),
+          ),
+          SizedBox(
+            height: 8.0,
+          ),
+          TextField(
+            style: TextStyle(
+              color: Colors.white,
             ),
-            RoundedButton(
-              title: 'Kayıt Ol',
-              colour: Colors.lightBlueAccent,
-              onPressed: () {
-                setState(() {});
-              },
+            textAlign: TextAlign.center,
+            decoration: kTextFieldDecoration.copyWith(
+              labelText: 'Parola',
+              labelStyle: kTextFont,
+
+
+              //hintText: 'Kullanıcı adınızı giriniz',
             ),
-          ],
-        ),
+          ),
+          SizedBox(
+            height: 8.0,
+          ),
+          TextField(
+            style: TextStyle(
+              color: Colors.white,
+            ),
+            obscureText: true,
+            textAlign: TextAlign.center,
+            decoration:
+            kTextFieldDecoration.copyWith(
+                labelText: 'Tekrar Parola',
+              labelStyle: kTextFont,
+            ),
+          ),
+          SizedBox(
+            height: 24.0,
+          ),
+          ButtonTheme(
+            minWidth: 375.0,
+            height: 40.0,
+
+            child: FlatButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
+                  side: BorderSide(color: Colors.red)),
+              color: Colors.white,
+              textColor: Colors.red,
+              padding: EdgeInsets.all(8.0),
+              onPressed: () {},
+              child: Text(
+                "Kayıt ol".toUpperCase(),
+                style: TextStyle(
+                  fontSize: 22, fontWeight: FontWeight.w800,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
