@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:zenginfalan/Categories.dart';
 import 'package:zenginfalan/LoginScreen.dart';
 import 'package:zenginfalan/Register.dart';
+import 'package:zenginfalan/UserScreen.dart';
 import 'package:zenginfalan/WelcomeScreen.dart';
 
 void main() {
@@ -17,6 +19,7 @@ class MyApp extends StatelessWidget {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         LoginScreen.id: (context) => LoginScreen(),
         RegisterScreen.id: (context) => RegisterScreen(),
+        Categories.id:(context)=>Categories(),
       },
     );
   }

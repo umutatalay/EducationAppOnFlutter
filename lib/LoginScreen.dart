@@ -1,6 +1,9 @@
 //balik
 
 //RENKLERİ DÜZENLERİZ GÖRMEK İÇİN BÖYLE YAPTIM ŞİMDİLİK
+import 'package:zenginfalan/Categories.dart';
+import 'package:zenginfalan/UserScreen.dart';
+
 import 'rounded_button.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
@@ -81,7 +84,9 @@ class _LoginScreenState extends State<LoginScreen> {
               color: Colors.white,
               textColor: Colors.red,
               padding: EdgeInsets.all(8.0),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, Categories.id);
+              },
               child: Text(
                 "GİRİŞ YAP",
                 style: TextStyle(
