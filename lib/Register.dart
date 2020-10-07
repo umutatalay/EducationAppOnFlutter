@@ -1,18 +1,27 @@
 //balikl
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:zenginfalan/Categories.dart';
 import 'constants.dart';
 import 'rounded_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+
 class RegisterScreen extends StatefulWidget {
   static const String id = 'register_screen';
+
 
   @override
   _RegisterScreenState createState() => _RegisterScreenState();
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final _auth = FirebaseAuth.instance;
+  final _firestore=FirebaseFirestore.instance;
+  String email;
+  String password;
+  String Name;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,8 +56,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
               labelStyle: kTextFont,
 
 
+
               //hintText: 'Kullanıcı adınızı giriniz',
             ),
+            onChanged: (value){
+              email = value;
+            },
           ),
           SizedBox(
             height: 8.0,
@@ -65,6 +78,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
               //hintText: 'Kullanıcı adınızı giriniz',
             ),
+            onChanged: (value){
+              Name=value;
+            },
           ),
           SizedBox(
             height: 8.0,
@@ -81,6 +97,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
               //hintText: 'Kullanıcı adınızı giriniz',
             ),
+            onChanged: (value){
+              password=value;
+            },
           ),
           SizedBox(
             height: 8.0,
@@ -111,13 +130,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
               color: Colors.white,
               textColor: Colors.red,
               padding: EdgeInsets.all(8.0),
-              onPressed: () {},
+              onPressed: () async{
+                try{
+                  final newUser= await _auth.createUserWithEmailAndPassword(email: email, password: password);
+                 // final newKullanici=await _firestore.
+                  if(newUser!=null){
+                    Navigator.pushNamed(context, Categories.id);
+                  }
+                }
+                catch(e){
+                  print(e);
+                }
+              },
               child: Text(
                 "Kayıt ol".toUpperCase(),
                 style: TextStyle(
                   fontSize: 22, fontWeight: FontWeight.w800,
                 ),
               ),
+
             ),
           ),
         ],

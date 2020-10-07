@@ -8,7 +8,7 @@ import 'rounded_button.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
@@ -96,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
               color: Colors.white,
               textColor: Colors.red,
               padding: EdgeInsets.all(8.0),
-    /*  onPressed: () async{
+              onPressed: () async{
                 setState(() {
                 //spinner
                 });
@@ -110,10 +110,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   print(e);
                 }
                  },
-                */
-
-
-
 
               child: Text(
                 "GİRİŞ YAP",
