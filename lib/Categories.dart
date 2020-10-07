@@ -179,7 +179,7 @@ class _CategoriesState extends State<Categories> {
                         fontSize: 28.0,
                         color: Color.fromRGBO(113,107,143, 1),
                       ),),
-                      Text('Web Tasarım',style: TextStyle(
+                      Text('Web Programlama',style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Color.fromRGBO(130,132,173, 1),
                       ),),

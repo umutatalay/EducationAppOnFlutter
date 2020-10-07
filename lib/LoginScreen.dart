@@ -3,11 +3,12 @@
 //RENKLERİ DÜZENLERİZ GÖRMEK İÇİN BÖYLE YAPTIM ŞİMDİLİK
 import 'package:zenginfalan/Categories.dart';
 import 'package:zenginfalan/UserScreen.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'rounded_button.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
@@ -17,6 +18,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _auth=FirebaseAuth.instance;
+  String email;
+  String password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +47,10 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           TextField(
+            onChanged: (value){
+              email=value;
+
+            },
             style: TextStyle(
               color: Colors.white,
             ),
@@ -58,6 +67,9 @@ class _LoginScreenState extends State<LoginScreen> {
             height: 8.0,
           ),
           TextField(
+            onChanged: (value){
+              password=value;
+            },
             style: TextStyle(
               color: Colors.white,
             ),
@@ -84,9 +96,25 @@ class _LoginScreenState extends State<LoginScreen> {
               color: Colors.white,
               textColor: Colors.red,
               padding: EdgeInsets.all(8.0),
-              onPressed: () {
-                Navigator.pushNamed(context, Categories.id);
-              },
+    /*  onPressed: () async{
+                setState(() {
+                //spinner
+                });
+               try{
+                  final currentUser = await _auth.signInWithEmailAndPassword(email: email, password: password);
+                  if(currentUser!=null){
+                    Navigator.pushNamed(context, Categories.id);
+                  }
+                }
+                catch(e){
+                  print(e);
+                }
+                 },
+                */
+
+
+
+
               child: Text(
                 "GİRİŞ YAP",
                 style: TextStyle(
