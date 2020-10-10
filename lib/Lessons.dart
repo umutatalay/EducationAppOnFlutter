@@ -10,23 +10,41 @@ class LessonScreen extends StatefulWidget {
 
 class _LessonScreenState extends State<LessonScreen> {
   var data;
+  String yazi;
   final databaseReference = FirebaseDatabase.instance.reference();
 
-  void readData() {
-    databaseReference.once().then((DataSnapshot snapshot) {
-      data = snapshot.value['mehmet'];
+  String readData() {
+    databaseReference.once().then((DataSnapshot snapshot) async {
+      data = await snapshot.value['Lessons'][0]['Lesson_Content'];
       print(data);
     });
+    yazi = data.toString();
+    return yazi;
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    readData();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black54,
+      backgroundColor: Colors.pink,
       body: Center(
-        child: FlatButton(
-          color: Colors.green,
-          onPressed: readData,
+        child: Column(
+          children: <Widget>[
+            Text(
+              readData(),
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 40.0,
+              ),
+            ),
+          ],
         ),
       ),
     );
