@@ -96,20 +96,23 @@ class _LoginScreenState extends State<LoginScreen> {
               color: Colors.white,
               textColor: Colors.red,
               padding: EdgeInsets.all(8.0),
-              onPressed: () async{
-                setState(() {
-                //spinner
-                });
-               try{
-                  final currentUser = await _auth.signInWithEmailAndPassword(email: email, password: password);
-                  if(currentUser!=null){
-                    Navigator.pushNamed(context, Categories.id);
-                  }
-                }
-                catch(e){
-                  print(e);
-                }
-                 },
+              onPressed: () async {
+                //  setState(() {
+                //  //spinner
+                //  });
+                // try{
+                //    final currentUser = await _auth.signInWithEmailAndPassword(email: email, password: password);
+                //    if(currentUser!=null){
+                //      Navigator.pushNamed(context, Categories.id);
+                //    }
+                //  }
+                //  catch(e){
+                //    print(e);
+                //  }
+
+                // BURAYI ŞİMDİLİK YAPTIM DURMADAN LOGIN ETMEKTEN SIKILDIM XD
+                Navigator.pushNamed(context, Categories.id);
+              },
 
               child: Text(
                 "GİRİŞ YAP",

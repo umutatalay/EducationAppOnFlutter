@@ -1,11 +1,10 @@
 //balikl
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:zenginfalan/Categories.dart';
 import 'constants.dart';
-import 'rounded_button.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 
 class RegisterScreen extends StatefulWidget {

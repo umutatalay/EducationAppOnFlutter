@@ -13,8 +13,8 @@ class _LessonScreenState extends State<LessonScreen> {
   String yazi;
   final databaseReference = FirebaseDatabase.instance.reference();
 
-  String readData() {
-    databaseReference.once().then((DataSnapshot snapshot) async {
+  Future<String> readData() async {
+    await databaseReference.once().then((DataSnapshot snapshot) async {
       data = await snapshot.value['Lessons'][0]['Lesson_Content'];
       print(data);
     });
@@ -27,6 +27,7 @@ class _LessonScreenState extends State<LessonScreen> {
     // TODO: implement initState
     super.initState();
     readData();
+    print(readData());
   }
 
   @override
@@ -37,7 +38,7 @@ class _LessonScreenState extends State<LessonScreen> {
         child: Column(
           children: <Widget>[
             Text(
-              readData(),
+              'k',
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
