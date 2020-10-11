@@ -1,5 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_database/firebase_database.dart';
 
 class LessonScreen extends StatefulWidget {
   static const String id = 'lesson_screen';
@@ -9,45 +9,40 @@ class LessonScreen extends StatefulWidget {
 }
 
 class _LessonScreenState extends State<LessonScreen> {
-  var data;
-  String yazi;
-  final databaseReference = FirebaseDatabase.instance.reference();
-
-  Future<String> readData() async {
-    await databaseReference.once().then((DataSnapshot snapshot) async {
-      data = await snapshot.value['Lessons'][0]['Lesson_Content'];
-      print(data);
-    });
-    yazi = data.toString();
-    return yazi;
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    readData();
-    print(readData());
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.pink,
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            Text(
-              'k',
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 40.0,
-              ),
-            ),
-          ],
-        ),
-      ),
+      body: Center(child: UserInformation()),
+    );
+  }
+}
+
+class UserInformation extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    CollectionReference users =
+        FirebaseFirestore.instance.collection('kodekspres');
+
+    return StreamBuilder<QuerySnapshot>(
+      stream: users.snapshots(),
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text('Something went wrong');
+        }
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Text("Loading");
+        }
+        return ListView(
+          children: snapshot.data.docs.map((DocumentSnapshot document) {
+            print(document.data().length.toString());
+            return ListTile(
+              title: Text(document.data()['Content'].toString()),
+            );
+          }).toList(),
+        );
+      },
     );
   }
 }
