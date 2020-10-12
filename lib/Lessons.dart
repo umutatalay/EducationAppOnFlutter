@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:zenginfalan/main.dart';
 
 var text;
 class LessonScreen extends StatefulWidget {
@@ -18,15 +19,19 @@ class _LessonScreenState extends State<LessonScreen> {
     );
   }
 }
+
 var liste = new List();
+
 // ignore: must_be_immutable
 class UserInformation extends StatelessWidget {
 
   String veriler='';
   @override
   Widget build(BuildContext context) {
+
     CollectionReference users =
-    FirebaseFirestore.instance.collection('HTML');
+    FirebaseFirestore.instance.collection('$CatName');
+
 
     return StreamBuilder<QuerySnapshot>(
       stream: users.snapshots(),
@@ -61,16 +66,27 @@ class NewWidget extends StatelessWidget {
 
   Widget build(BuildContext context) {
 
-      print('sa');
       return Scaffold(
         body:
-          Center(
-            child: Container(
-              child: Column(
-                children: [for(var b in liste)Text(b.toString())],
+          Column(
+            children: [
+              Center(
+                child: Container(
+                  child: Column(
+                    children: [for(var b in liste)Text(b.toString())],
+                  ),
+                ),
+
               ),
-            ),
-          )
+            Row(
+              children: [
+                Text(CatName.toString()),
+              ],
+            )
+            ],
+          ),
+
+
 
       );
 

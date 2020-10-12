@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:zenginfalan/Lessons.dart';
-
+import 'package:zenginfalan/main.dart';
+import 'package:zenginfalan/Lessons.dart';
 class Categories extends StatefulWidget {
   static const String id = 'Categories';
 
@@ -30,8 +31,6 @@ class _CategoriesState extends State<Categories> {
                   bottomRight: Radius.circular(12.0),
                 ),
               ),
-
-
               height: 50.0,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -52,7 +51,10 @@ class _CategoriesState extends State<Categories> {
             ),
             InkWell(
               onTap: () {
+                liste.clear();
+                CatName='HTML';
                 Navigator.pushNamed(context, LessonScreen.id);
+
               },
               child: Container(
                 height: 100.0,
@@ -104,54 +106,64 @@ class _CategoriesState extends State<Categories> {
             SizedBox(
               height: 17.0,
             ),
-            Container(
-              height: 100.0,
-              width: 400.0,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(12.0),
-                  topRight: Radius.circular(12.0),
-                  bottomLeft: Radius.circular(12.0),
-                  bottomRight: Radius.circular(12.0),
+            InkWell(
+              onTap: (){
+                liste.clear();
+                CatName='Css';
+                Navigator.pushNamed(context, LessonScreen.id);
+              },
+              child: Container(
+
+                height: 100.0,
+                width: 400.0,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(12.0),
+                    topRight: Radius.circular(12.0),
+                    bottomLeft: Radius.circular(12.0),
+                    bottomRight: Radius.circular(12.0),
+                  ),
                 ),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CircleAvatar(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CircleAvatar(
 
-                    radius: 50,
-                    backgroundColor: Colors.transparent,
-                    backgroundImage: AssetImage('images/css.png'),
+                      radius: 50,
+                      backgroundColor: Colors.transparent,
+                      backgroundImage: AssetImage('images/css.png'),
 
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('CSS',style: TextStyle(
-                        fontFamily: 'KursAdi',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 28.0,
-                        color: Color.fromRGBO(113,107,143, 1),
-                      ),),
-                      Text('Web Tasarım',style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromRGBO(130,132,173, 1),
-                      ),),
-                    ],
-                  ),
-                  Icon(Icons.arrow_forward_ios),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('CSS',style: TextStyle(
+                          fontFamily: 'KursAdi',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 28.0,
+                          color: Color.fromRGBO(113,107,143, 1),
+                        ),),
+                        Text('Web Tasarım',style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromRGBO(130,132,173, 1),
+                        ),),
+                      ],
+                    ),
+                    Icon(Icons.arrow_forward_ios),
 
 
-                ],
+                  ],
+                ),
               ),
             ),
             SizedBox(
               height: 17.0,
             ),
+
+
             Container(
               height: 100.0,
               width: 400.0,
