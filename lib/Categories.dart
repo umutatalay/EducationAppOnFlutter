@@ -52,6 +52,7 @@ class _CategoriesState extends State<Categories> {
             InkWell(
               onTap: () {
                 liste.clear();
+                listedurum.clear();
                 CatName='HTML';
                 Navigator.pushNamed(context, LessonScreen.id);
 
@@ -109,6 +110,7 @@ class _CategoriesState extends State<Categories> {
             InkWell(
               onTap: (){
                 liste.clear();
+                listedurum.clear();
                 CatName='Css';
                 Navigator.pushNamed(context, LessonScreen.id);
               },

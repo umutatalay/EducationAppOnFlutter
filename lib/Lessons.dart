@@ -49,6 +49,7 @@ class UserInformation extends StatelessWidget {
             liste.add(document.id);
             listedurum.add((document.data()['gordumu']));
             print(gordumu);
+
           }).toList(),
           
 
@@ -64,12 +65,12 @@ class UserInformation extends StatelessWidget {
                   children: [
 
                     for (var b in liste)
-                      
+
                       InkWell(
                         onTap: () {
-                          print("b: $b");
+                          //print(liste.indexOf(b));
 
-                          print(liste.indexOf(b));
+                          print(listedurum);
                           // liste.clear();
                           // CatName='HTML';
                           // Navigator.pushNamed(context, LessonScreen.id);
