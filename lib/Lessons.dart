@@ -14,14 +14,15 @@ class _LessonScreenState extends State<LessonScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.white12,
       body: Center(child: UserInformation()),
     );
   }
 }
-
+int sayac=0;
 var liste = new List();
-
+List<bool> listedurum = new List();
+bool gordumu;
 // ignore: must_be_immutable
 class UserInformation extends StatelessWidget {
 
@@ -46,84 +47,99 @@ class UserInformation extends StatelessWidget {
         ListView(
           children: snapshot.data.docs.map((DocumentSnapshot document) {
             liste.add(document.id);
+            listedurum.add((document.data()['gordumu']));
+            print(gordumu);
           }).toList(),
+          
 
         );
-       NewWidget();
-        return Scaffold(
-          backgroundColor: Colors.red,
-          body: NewWidget(),
+
+        return SafeArea(
+          child: Scaffold(
+            backgroundColor: Colors.white70 ,
+
+            body: SingleChildScrollView(
+              child: Container(
+                child: Column(
+                  children: [
+
+                    for (var b in liste)
+                      
+                      InkWell(
+                        onTap: () {
+                          print("b: $b");
+
+                          print(liste.indexOf(b));
+                          // liste.clear();
+                          // CatName='HTML';
+                          // Navigator.pushNamed(context, LessonScreen.id);
+                        },
+                        child: Padding(
+
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 100.0,
+                            width: 400.0,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(12.0),
+                                  topRight: Radius.circular(12.0),
+                                  bottomLeft: Radius.circular(12.0),
+                                  bottomRight: Radius.circular(12.0),
+                                )),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Flexible(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                  ('    '+b.toString()), // geçici
+                                        style: TextStyle(
+                                          fontSize: 25.0,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'KursAdi',
+                                          color: Color.fromRGBO(113, 107, 143, 1),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Row(
+                                  children: <Widget> [
+                                    Row(
+                                      children: [
+
+                                        Icon(
+                                        listedurum[liste.indexOf(b)]==true?Icons.check:Icons.cancel,
+                                        ),
+
+                                        Icon(Icons.arrow_forward_ios),],
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+
+                          ),
+                        ),
+                      ),
+                    SizedBox(
+                      height: 50.0,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
         );
       },
     );
   }
 }
 
-class NewWidget extends StatelessWidget {
-
-  @override
-
-  Widget build(BuildContext context) {
-
-      return Scaffold(
-        backgroundColor: Colors.red,
-      body: Column(
-        children: [
-          Center(
-            child: Container(
-              child: Column(
-                children: [
-                  for (var b in liste)
-                    InkWell(
-                      onTap: () {
-                        // liste.clear();
-                        // CatName='HTML';
-                        // Navigator.pushNamed(context, LessonScreen.id);
-                      },
-                      child: Container(
-                        height: 100.0,
-                        width: 400.0,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(12.0),
-                              topRight: Radius.circular(12.0),
-                              bottomLeft: Radius.circular(12.0),
-                              bottomRight: Radius.circular(12.0),
-                            )),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  b.toString(),
-                                  style: TextStyle(
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Icon(Icons.arrow_forward_ios),
-                          ],
-                        ),
-                      ),
-                    ),
-                  SizedBox(
-                    height: 50.0,
-                  ),
-                ],
-              ),
-              ),
-            ),
-          ],
-        ),
-      );
-  }
-}
 
