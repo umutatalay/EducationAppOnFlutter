@@ -116,7 +116,7 @@ class UserInformation extends StatelessWidget {
                                       children: [
 
                                         Icon(
-                                        listedurum[liste.indexOf(b)]==true?Icons.check:Icons.cancel,
+                                        listedurum[liste.indexOf(b)]==true?Icons.check:Icons.clear,color: Colors.red,
                                         ),
 
                                         Icon(Icons.arrow_forward_ios),],
