@@ -12,6 +12,7 @@ class LessonScreen extends StatefulWidget {
   _LessonScreenState createState() => _LessonScreenState();
 }
 int DersId;
+String DersAdi=' ';
 class _LessonScreenState extends State<LessonScreen> {
   @override
   Widget build(BuildContext context) {
@@ -71,6 +72,7 @@ class UserInformation extends StatelessWidget {
 
                       InkWell(
                         onTap: () {
+                          DersAdi=b.toString();
                           DersId=liste.indexOf(b);
                           deneme=FieldPath.documentId.toString();
                           print(liste);

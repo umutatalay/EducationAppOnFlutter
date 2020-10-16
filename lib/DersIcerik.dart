@@ -8,8 +8,10 @@ class DersIcerik extends StatefulWidget {
   @override
   _DersIcerikState createState() => _DersIcerikState();
 }
+int sayac=1;
 
 class _DersIcerikState extends State<DersIcerik> {
+  
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,11 +20,25 @@ class _DersIcerikState extends State<DersIcerik> {
           stream: FirebaseFirestore.instance.collection('$CatName').snapshots(),
           builder: (context, snapshot){
             if(!snapshot.hasData) return Text('Bekle');
-            return Center(
+            String img = snapshot.data.documents[DersId]['Content$sayac'];
+            return Container(
               child: Column(
-                children: <Widget>[
-                  Center(child: Text(snapshot.data.documents[DersId]['Content'],)),
-                  Center(child: Text(snapshot.data.documents[DersId]['Others'].toString())),
+                children:  [
+                  Text(DersAdi),
+                  Image(
+                    image: NetworkImage('$img'),
+                  ),
+                  Text(snapshot.data.documents[DersId]['Others'].toString()),
+                  FlatButton(
+                    color: Colors.red,
+                    onPressed: (){
+                      sayac++;
+                      setState(() {
+
+
+                      });
+                    },
+                  )
                 ],
               ),
             );
