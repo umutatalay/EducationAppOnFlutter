@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:zenginfalan/DersIcerik.dart';
 import 'package:zenginfalan/main.dart';
 import 'content.dart';
 
@@ -10,7 +11,7 @@ class LessonScreen extends StatefulWidget {
   @override
   _LessonScreenState createState() => _LessonScreenState();
 }
-String DersId='E';
+int DersId;
 class _LessonScreenState extends State<LessonScreen> {
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ int sayac=0;
 var liste = new List();
 List<bool> listedurum = new List();
 bool gordumu;
+String deneme=' ';
 // ignore: must_be_immutable
 class UserInformation extends StatelessWidget {
 
@@ -69,8 +71,12 @@ class UserInformation extends StatelessWidget {
 
                       InkWell(
                         onTap: () {
-                          DersId='JSGiris';
-                          Navigator.pushNamed(context,Content.id);
+                          DersId=liste.indexOf(b);
+                          deneme=FieldPath.documentId.toString();
+                          print(liste);
+                          //print('Selam');
+                          //DersId=['Content'].toString();
+                          Navigator.pushNamed(context,DersIcerik.id);
 
                           print(listedurum);
                           // liste.clear();
@@ -78,6 +84,7 @@ class UserInformation extends StatelessWidget {
                           // Navigator.pushNamed(context, LessonScreen.id);
                         },
                         child: Padding(
+
 
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
@@ -101,7 +108,8 @@ class UserInformation extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                  ('    '+b.toString()), // geçici
+                                  ('    '+b.toString()),
+                                        // geçici
                                         style: TextStyle(
                                           fontSize: 25.0,
                                           fontWeight: FontWeight.bold,
@@ -116,7 +124,6 @@ class UserInformation extends StatelessWidget {
                                   children: <Widget> [
                                     Row(
                                       children: [
-
                                         Icon(
                                         listedurum[liste.indexOf(b)]==true?Icons.check:Icons.clear,color: Colors.red,
                                         ),

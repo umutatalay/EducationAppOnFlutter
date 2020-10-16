@@ -17,7 +17,10 @@ class _ContentState extends State<Content> {
     );
   }
 }
+
+
 String text;
+
 class UserInformation extends StatelessWidget {
 
 
@@ -26,8 +29,9 @@ class UserInformation extends StatelessWidget {
   Widget build(BuildContext context) {
 
     CollectionReference users =
-    FirebaseFirestore.instance.collection('$CatName');
-
+      FirebaseFirestore.instance.collection('$CatName');
+    //Stream collectionStream = FirebaseFirestore.instance.collection('CatName').snapshots();
+//    Stream documentStream = FirebaseFirestore.instance.collection('CatName').doc('DersId').snapshots();
 
     return StreamBuilder<QuerySnapshot>(
       stream: users.snapshots(),
@@ -43,16 +47,20 @@ class UserInformation extends StatelessWidget {
 
           children: snapshot.data.docs.map((DocumentSnapshot document) {
             liste.add(document.id);
-            listedurum.add((document.data()['gordumu']));
-            print(gordumu);
-            text = document.data()['Content'].toString();
+            if(DersId==users.doc('$CatName')){
+              print('object');
+            }
+
+
+              text = document.data()['Content'].toString();
+            print(text);
 
           }).toList(),
 
 
         );
 
-        return Center(child: Text(text));
+        return Center(child: Text('ss'));
       },
     );
   }

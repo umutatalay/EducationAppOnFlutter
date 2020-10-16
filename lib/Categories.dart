@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:zenginfalan/DersIcerik.dart';
 import 'package:zenginfalan/Lessons.dart';
 import 'package:zenginfalan/main.dart';
 import 'package:zenginfalan/Lessons.dart';

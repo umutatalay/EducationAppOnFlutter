@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zenginfalan/Categories.dart';
+import 'package:zenginfalan/DersIcerik.dart';
 import 'package:zenginfalan/Lessons.dart';
 import 'package:zenginfalan/LoginScreen.dart';
 import 'package:zenginfalan/Register.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         Categories.id: (context) => Categories(),
         LessonScreen.id: (context) => LessonScreen(),
         Content.id:(context)=>Content(),
+        DersIcerik.id:(context)=>DersIcerik(),
       },
     );
   }
