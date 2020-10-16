@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:zenginfalan/main.dart';
+import 'content.dart';
 
 var text;
 class LessonScreen extends StatefulWidget {
@@ -9,7 +10,7 @@ class LessonScreen extends StatefulWidget {
   @override
   _LessonScreenState createState() => _LessonScreenState();
 }
-
+String DersId='E';
 class _LessonScreenState extends State<LessonScreen> {
   @override
   Widget build(BuildContext context) {
@@ -68,7 +69,8 @@ class UserInformation extends StatelessWidget {
 
                       InkWell(
                         onTap: () {
-                          //print(liste.indexOf(b));
+                          DersId='JSGiris';
+                          Navigator.pushNamed(context,Content.id);
 
                           print(listedurum);
                           // liste.clear();

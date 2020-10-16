@@ -6,6 +6,7 @@ import 'package:zenginfalan/Register.dart';
 import 'package:zenginfalan/UserScreen.dart';
 import 'package:zenginfalan/WelcomeScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'content.dart';
 void main () async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         RegisterScreen.id: (context) => RegisterScreen(),
         Categories.id: (context) => Categories(),
         LessonScreen.id: (context) => LessonScreen(),
+        Content.id:(context)=>Content(),
       },
     );
   }
